@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@theme {
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --color-navy: #1b2a6b; --color-navy-deep: #121a4a; --color-magenta: #c2185b; --color-magenta-deep: #9c1249; --color-gold: #e3b23c; --color-gold-deep: #c4921c; --color-paper: #fbf6ef; --color-ink: #1c1a24; --color-muted: #5c5668; --color-surface: #ffffff; --color-lilac: #e3d4f3; --color-blush: #fde8f0; --color-mist: #e7edf8; --color-whatsapp: #0f7a6e;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 18px; --radius-xl: 28px; --radius-2xl: 40px;
+  --shadow-card: 0 0 0 1px color-mix(in oklab, var(--color-ink) 8%, transparent), 0 1px 2px color-mix(in oklab, var(--color-ink) 5%, transparent), 0 12px 28px -18px color-mix(in oklab, var(--color-navy) 35%, transparent);
+  --shadow-card-hover: 0 0 0 1px color-mix(in oklab, var(--color-ink) 12%, transparent), 0 2px 6px color-mix(in oklab, var(--color-ink) 6%, transparent), 0 18px 36px -16px color-mix(in oklab, var(--color-navy) 40%, transparent);
+}
+@layer base {
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background: var(--color-paper); color: var(--color-ink); }
+  body { font-family: var(--font-sans); background: var(--color-paper); color: var(--color-ink); min-height: 100dvh; }
+  h1,h2,h3,h4 { text-wrap: balance; } p { text-wrap: pretty; }
+  button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+  img { outline: 1px solid color-mix(in oklab, var(--color-ink) 10%, transparent); outline-offset: -1px; }
+  :focus-visible { outline: 2px solid var(--color-navy); outline-offset: 3px; }
+}
+@layer utilities {
+  .paper-grain { background-image: radial-gradient(1200px 480px at 10% -10%, color-mix(in oklab, var(--color-blush) 55%, transparent), transparent 60%), radial-gradient(900px 420px at 110% 0%, color-mix(in oklab, var(--color-mist) 70%, transparent), transparent 55%), linear-gradient(180deg, var(--color-paper), var(--color-paper)); }
+  .shadow-card { box-shadow: var(--shadow-card); } .shadow-card-hover { box-shadow: var(--shadow-card-hover); }
+  .gold-text { background: linear-gradient(90deg, #e3b23c, #fff1a8, #c4921c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .premium-line { height: 1px; background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-gold) 75%, transparent), transparent); }
+}
+@media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
