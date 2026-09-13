@@ -8,7 +8,16 @@ export const SITE = {
   invite: "Conte conosco!",
   phoneDisplay: "(67) 9.8475-9208",
   phoneTel: "+5567984759208",
-  whatsapp: "https://wa.me/5567984759208?text=" + encodeURIComponent("Olá, Profª. Lú! Gostaria de informações sobre a Corporation Educacional Superlativo Heureca e suas soluções de aprendizagem."),
+  whatsapp:
+    "https://wa.me/5567984759208?text=" +
+    encodeURIComponent(
+      "Olá, Profª. Lú! Gostaria de informações sobre a Corporation Educacional Superlativo Heureca e suas soluções de aprendizagem.",
+    ),
+  whatsappReciclagem:
+    "https://wa.me/5567984759208?text=" +
+    encodeURIComponent(
+      "Olá, Profª. Lú! Quero informações e inscrição nos Cursos de Reciclagem (Português e Matemática).",
+    ),
   facebook: "https://www.facebook.com/groups/521597561240445/contato",
   hours: [
     { start: "14:00", end: "15:30" },
@@ -17,9 +26,28 @@ export const SITE = {
   ],
 } as const;
 
+export const RECICLAGEM = {
+  badge: "Novidade",
+  title: "Cursos de Reciclagem",
+  subjects: ["Português", "Matemática"] as const,
+  focus: "Séries iniciais e Ensino Médio",
+  period: "De 20 de julho a 1º de agosto",
+  hoursLabel: "Horário vespertino",
+  levels: [
+    { id: "infantil", title: "Ensino Infantil" },
+    { id: "fundamental", title: "Ensino Fundamental" },
+    { id: "medio", title: "Ensino Médio" },
+    { id: "enem", title: "ENEM" },
+    { id: "vestibular", title: "Vestibulares e Concursos" },
+  ] as const,
+  pitch:
+    "Acompanhamento educacional e aulas de reforço com suporte, foco e resultados — para aprender hoje e transformar o amanhã.",
+} as const;
+
 export const NAV = [
   { to: "/", label: "Início" },
   { to: "/universo", label: "Universo" },
+  { to: "/reciclagem", label: "Reciclagem" },
   { to: "/aulas", label: "Aulas" },
   { to: "/ia", label: "Heureca AI" },
   { to: "/explorador", label: "Explorador" },

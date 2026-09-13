@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 
+/** P1: logo institucional no chrome; cartoon fica no hero/campanhas. */
 export function BrandMark({ className, light = false }: { className?: string; light?: boolean }) {
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
@@ -11,12 +12,24 @@ export function BrandMark({ className, light = false }: { className?: string; li
         aria-hidden="true"
       >
         <img
-          src="/images/logo-heureca-kids.png"
+          src="/images/logo-institution.png"
           alt=""
-          className="size-full object-cover"
-          width={40}
-          height={40}
+          className="size-9 object-contain p-0.5"
+          width={36}
+          height={36}
+          onError={(e) => {
+            const el = e.currentTarget;
+            el.style.display = "none";
+            const fallback = el.nextElementSibling as HTMLElement | null;
+            if (fallback) fallback.hidden = false;
+          }}
         />
+        <svg viewBox="0 0 32 32" className="size-6" fill="none" hidden>
+          <circle cx="16" cy="16" r="10.5" stroke={light ? "#FBF6EF" : "#E3B23C"} strokeWidth="1.6" />
+          <ellipse cx="16" cy="16" rx="4.5" ry="10.5" stroke={light ? "#FBF6EF" : "#E3B23C"} strokeWidth="1.4" />
+          <path d="M6 16h20M8.5 11.2h15M8.5 20.8h15" stroke={light ? "#FBF6EF" : "#E3B23C"} strokeWidth="1.2" />
+          <path d="M11 23.5c1.4-2.2 3.1-3.4 5-3.4s3.6 1.2 5 3.4" stroke="#C2185B" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
       </span>
       <span className="flex min-w-0 flex-col leading-none">
         <span
