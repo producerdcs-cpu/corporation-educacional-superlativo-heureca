@@ -3,7 +3,10 @@ import { ArrowRight, BookOpen, BrainCircuit, CheckCircle2, GraduationCap, Lightb
 import { Button } from "@/components/ui/button";
 import { LEVELS, SITE } from "@/lib/site";
 
-export const Route = createFileRoute("/")({ component: Home, head: () => ({ meta: [{ title: "Superlativo Heureca — O mais alto grau do aprender" }] }) });
+export const Route = createFileRoute("/")({
+  component: Home,
+  head: () => ({ meta: [{ title: "Superlativo Heureca — O mais alto grau do aprender" }] }),
+});
 
 const PILLARS = [
   { icon: GraduationCap, title: "Aprendizagem integral", text: "Da alfabetização ao Ensino Superior, com trilhas adaptadas ao objetivo de cada estudante." },
@@ -13,15 +16,199 @@ const PILLARS = [
 ];
 
 function Home() {
-  return <div>
-    <section className="mx-auto grid max-w-6xl items-stretch gap-6 px-4 py-7 sm:px-6 sm:py-10 lg:grid-cols-[1.05fr_0.95fr]">
-      <div className="relative overflow-hidden rounded-[2.2rem] bg-navy-deep p-6 text-white shadow-card sm:p-9"><div className="absolute -right-24 -top-24 size-64 rounded-full bg-magenta/25 blur-3xl" aria-hidden="true" /><div className="relative"><p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">Corporation Educacional Superlativo Heureca®</p><h1 className="mt-4 max-w-2xl font-display text-4xl font-semibold leading-[0.98] sm:text-6xl">O mais alto grau do aprender.</h1><p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">Superlativo é o <strong className="text-white">mais alto grau</strong>. Heureca é o momento de <strong className="text-gold">“encontrei a solução!”</strong> — uma proposta educacional para aprender, reforçar, criar e explorar.</p><div className="mt-7 flex flex-wrap gap-3"><Button asChild variant="gold"><Link to="/ia"><Sparkles className="size-4" /> Experimentar Heureca AI</Link></Button><Button asChild variant="outline"><Link to="/universo">Conhecer o Universo</Link></Button></div><div className="mt-8 grid grid-cols-3 gap-3 border-t border-white/10 pt-5 text-center"><div><p className="font-display text-2xl font-semibold text-gold">ABC →</p><p className="text-xs text-white/60">alfabetização</p></div><div><p className="font-display text-2xl font-semibold text-gold">ENEM →</p><p className="text-xs text-white/60">vestibular e concurso</p></div><div><p className="font-display text-2xl font-semibold text-gold">TCC →</p><p className="text-xs text-white/60">ensino superior</p></div></div></div></div>
-      <div className="overflow-hidden rounded-[2.2rem] bg-paper shadow-card"><img src="/images/hero-kids.svg" alt="Estudantes aprendendo juntos com um globo terrestre." className="aspect-[4/3] w-full object-cover object-center" /><div className="p-6 sm:p-8"><p className="text-xs font-bold uppercase tracking-[0.18em] text-magenta">A ideia central</p><h2 className="mt-2 font-display text-3xl font-semibold text-navy">Encontrar a solução muda o jeito de aprender.</h2><p className="mt-3 leading-relaxed text-muted">Uma mesma casa para aulas, revisão, preparação, exploração e apoio acadêmico — com tecnologia como instrumento, não como substituto do pensamento.</p></div></div>
-    </section>
-    <section className="mx-auto max-w-6xl px-4 pb-8 sm:px-6"><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{PILLARS.map((item) => <article key={item.title} className="rounded-[1.5rem] bg-surface p-5 shadow-card"><span className="grid size-11 place-items-center rounded-xl bg-mist text-navy"><item.icon className="size-5" /></span><h2 className="mt-4 font-display text-xl font-semibold text-navy">{item.title}</h2><p className="mt-2 text-sm leading-relaxed text-muted">{item.text}</p></article>)}</div></section>
-    <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6"><div className="rounded-[1.9rem] bg-white p-6 shadow-card sm:p-8"><div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="text-xs font-bold uppercase tracking-[0.16em] text-magenta">Jornada educacional</p><h2 className="mt-1 font-display text-3xl font-semibold text-navy">Um universo que acompanha cada etapa</h2></div><Link to="/universo" className="inline-flex items-center gap-2 text-sm font-bold text-magenta">Ver mapa completo <ArrowRight className="size-4" /></Link></div><div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">{LEVELS.map((level) => <Link key={level.id} to="/aulas" search={{ nivel: level.id }} className="rounded-2xl bg-paper p-4 transition hover:-translate-y-0.5 hover:shadow-card"><span className="grid size-10 place-items-center rounded-xl bg-navy text-gold"><GraduationCap className="size-5" /></span><p className="mt-3 font-display text-lg font-semibold text-navy">{level.title}</p><p className="mt-1 text-sm leading-relaxed text-muted">{level.blurb}</p></Link>)}</div></div></section>
-    <section className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]"><div className="rounded-[1.9rem] bg-magenta p-6 text-white sm:p-8"><p className="text-xs font-bold uppercase tracking-[0.16em] text-white/70">Heureca AI + RAG</p><h2 className="mt-2 font-display text-3xl font-semibold">Uma aula pode nascer de uma pergunta.</h2><p className="mt-3 leading-relaxed text-white/80">Escolha tema, nível, área e objetivo. O sistema recupera contexto pedagógico, monta uma sequência e entrega prática para explorar.</p><Button asChild variant="gold" className="mt-5"><Link to="/ia">Abrir laboratório <ArrowRight className="size-4" /></Link></Button></div><div className="rounded-[1.9rem] bg-navy p-6 text-white sm:p-8"><div className="flex items-center gap-3"><Lightbulb className="size-6 text-gold" /><p className="font-semibold">Pipeline pedagógico</p></div><div className="mt-5 grid gap-2 sm:grid-cols-4">{["Pergunta", "RAG", "Aula", "Prática"].map((step, i) => <div key={step} className="rounded-xl border border-white/10 bg-white/5 p-3 text-center"><p className="text-xs font-bold text-gold">0{i + 1}</p><p className="mt-1 text-sm font-semibold">{step}</p></div>)}</div><p className="mt-5 text-sm leading-relaxed text-white/65">A arquitetura deixa espaço para integrar modelo GenAI, base documental, memória por perfil, avaliação e histórico quando o backend estiver conectado.</p></div></section>
-    <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6"><div className="overflow-hidden rounded-[1.9rem] bg-surface shadow-card lg:grid lg:grid-cols-[1fr_18rem]"><div className="p-6 sm:p-8"><p className="text-xs font-bold uppercase tracking-[0.16em] text-magenta">Produção acadêmica</p><h2 className="mt-2 font-display text-3xl font-semibold text-navy">Rigor para criar. Clareza para apresentar.</h2><p className="mt-3 max-w-2xl leading-relaxed text-muted">TCC, portfólio, monografia, tese, artigo científico, resumo, pesquisa e apresentação. A plataforma orienta estrutura, método, revisão e organização, preservando a autoria intelectual.</p><div className="mt-5 grid gap-2 sm:grid-cols-2">{["Estrutura e objetivos", "Metodologia e evidências", "Revisão e clareza", "Apresentação e defesa"].map((x) => <p key={x} className="flex items-center gap-2 text-sm font-semibold text-navy"><CheckCircle2 className="size-4 text-magenta" />{x}</p>)}</div><Button asChild variant="navy" className="mt-6"><Link to="/trabalhos">Abrir central acadêmica</Link></Button></div><img src="/images/academic.svg" alt="Materiais de estudo e apresentação acadêmica." className="hidden h-full w-full object-cover lg:block" /></div></section>
-    <section className="mx-auto max-w-6xl px-4 pb-14 pt-8 sm:px-6"><div className="flex flex-col items-start justify-between gap-4 rounded-[1.9rem] bg-navy-deep p-6 text-white sm:flex-row sm:items-center sm:p-8"><div><p className="font-display text-2xl font-semibold text-gold">{SITE.slogan}</p><p className="mt-1 text-white/70">{SITE.phoneDisplay} · atendimento e inscrições</p></div><Button asChild variant="gold"><Link to="/contato">Falar conosco</Link></Button></div></section>
-  </div>;
+  return (
+    <div>
+      <section className="mx-auto grid max-w-6xl items-stretch gap-6 px-4 py-7 sm:px-6 sm:py-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="relative overflow-hidden rounded-[2.2rem] bg-navy-deep p-6 text-white shadow-card sm:p-9">
+          <div className="absolute -right-24 -top-24 size-64 rounded-full bg-magenta/25 blur-3xl" aria-hidden="true" />
+          <div className="relative">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">
+              Corporation Educacional Superlativo Heureca®
+            </p>
+            <h1 className="mt-4 max-w-2xl font-display text-4xl font-semibold leading-[0.98] sm:text-6xl">
+              O mais alto grau do aprender.
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
+              Superlativo é o <strong className="text-white">mais alto grau</strong>. Heureca é o momento de{" "}
+              <strong className="text-gold">“encontrei a solução!”</strong> — uma proposta educacional para aprender,
+              reforçar, criar e explorar.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Button asChild variant="gold">
+                <Link to="/ia">
+                  <Sparkles className="size-4" /> Experimentar Heureca AI
+                </Link>
+              </Button>
+              <Button asChild variant="outline">
+                <Link to="/universo">Conhecer o Universo</Link>
+              </Button>
+            </div>
+            <div className="mt-8 grid grid-cols-3 gap-3 border-t border-white/10 pt-5 text-center">
+              <div>
+                <p className="font-display text-2xl font-semibold text-gold">ABC →</p>
+                <p className="text-xs text-white/60">alfabetização</p>
+              </div>
+              <div>
+                <p className="font-display text-2xl font-semibold text-gold">ENEM →</p>
+                <p className="text-xs text-white/60">vestibular e concurso</p>
+              </div>
+              <div>
+                <p className="font-display text-2xl font-semibold text-gold">TCC →</p>
+                <p className="text-xs text-white/60">ensino superior</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="overflow-hidden rounded-[2.2rem] bg-paper shadow-card">
+          <div className="relative bg-gradient-to-b from-[#E8F4FF] to-[#FFF8F0] px-4 pt-5 sm:px-6 sm:pt-6">
+            <img
+              src="/images/hero-heureca-kids.jpg"
+              alt="Pessoinhas do Superlativo Heureca com o globo — aprender juntos e encontrar a solução."
+              className="mx-auto aspect-[6/5] w-full max-w-md object-contain object-bottom"
+              width={640}
+              height={533}
+            />
+          </div>
+          <div className="p-6 sm:p-8">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-magenta">A ideia central</p>
+            <h2 className="mt-2 font-display text-3xl font-semibold text-navy">
+              Encontrar a solução muda o jeito de aprender.
+            </h2>
+            <p className="mt-3 leading-relaxed text-muted">
+              As pessoinhas com o globo representam descoberta, companhia e mundo aberto: a mesma casa para aulas,
+              revisão, preparação, exploração e apoio acadêmico — com a {SITE.teacher} e a tecnologia como instrumento.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {PILLARS.map((item) => (
+            <article key={item.title} className="rounded-[1.5rem] bg-surface p-5 shadow-card">
+              <span className="grid size-11 place-items-center rounded-xl bg-mist text-navy">
+                <item.icon className="size-5" />
+              </span>
+              <h2 className="mt-4 font-display text-xl font-semibold text-navy">{item.title}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+        <div className="rounded-[1.9rem] bg-white p-6 shadow-card sm:p-8">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-magenta">Jornada educacional</p>
+              <h2 className="mt-1 font-display text-3xl font-semibold text-navy">
+                Um universo que acompanha cada etapa
+              </h2>
+            </div>
+            <Link to="/universo" className="inline-flex items-center gap-2 text-sm font-bold text-magenta">
+              Ver mapa completo <ArrowRight className="size-4" />
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {LEVELS.map((level) => (
+              <Link
+                key={level.id}
+                to="/aulas"
+                search={{ nivel: level.id }}
+                className="rounded-2xl bg-paper p-4 transition hover:-translate-y-0.5 hover:shadow-card"
+              >
+                <span className="grid size-10 place-items-center rounded-xl bg-navy text-gold">
+                  <GraduationCap className="size-5" />
+                </span>
+                <p className="mt-3 font-display text-lg font-semibold text-navy">{level.title}</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted">{level.blurb}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="rounded-[1.9rem] bg-magenta p-6 text-white sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/70">Heureca AI + RAG</p>
+          <h2 className="mt-2 font-display text-3xl font-semibold">Uma aula pode nascer de uma pergunta.</h2>
+          <p className="mt-3 leading-relaxed text-white/80">
+            Escolha tema, nível, área e objetivo. O sistema recupera contexto pedagógico, monta uma sequência e entrega
+            prática para explorar.
+          </p>
+          <Button asChild variant="gold" className="mt-5">
+            <Link to="/ia">
+              Abrir laboratório <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+        </div>
+        <div className="rounded-[1.9rem] bg-navy p-6 text-white sm:p-8">
+          <div className="flex items-center gap-3">
+            <Lightbulb className="size-6 text-gold" />
+            <p className="font-semibold">Pipeline pedagógico</p>
+          </div>
+          <div className="mt-5 grid gap-2 sm:grid-cols-4">
+            {["Pergunta", "RAG", "Aula", "Prática"].map((step, i) => (
+              <div key={step} className="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
+                <p className="text-xs font-bold text-gold">0{i + 1}</p>
+                <p className="mt-1 text-sm font-semibold">{step}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-sm leading-relaxed text-white/65">
+            A arquitetura deixa espaço para integrar modelo GenAI, base documental, memória por perfil, avaliação e
+            histórico quando o backend estiver conectado.
+          </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+        <div className="overflow-hidden rounded-[1.9rem] bg-surface shadow-card lg:grid lg:grid-cols-[1fr_18rem]">
+          <div className="p-6 sm:p-8">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-magenta">Produção acadêmica</p>
+            <h2 className="mt-2 font-display text-3xl font-semibold text-navy">
+              Rigor para criar. Clareza para apresentar.
+            </h2>
+            <p className="mt-3 max-w-2xl leading-relaxed text-muted">
+              TCC, portfólio, monografia, tese, artigo científico, resumo, pesquisa e apresentação. A plataforma orienta
+              estrutura, método, revisão e organização, preservando a autoria intelectual.
+            </p>
+            <div className="mt-5 grid gap-2 sm:grid-cols-2">
+              {["Estrutura e objetivos", "Metodologia e evidências", "Revisão e clareza", "Apresentação e defesa"].map(
+                (x) => (
+                  <p key={x} className="flex items-center gap-2 text-sm font-semibold text-navy">
+                    <CheckCircle2 className="size-4 text-magenta" />
+                    {x}
+                  </p>
+                ),
+              )}
+            </div>
+            <Button asChild variant="navy" className="mt-6">
+              <Link to="/trabalhos">Abrir central acadêmica</Link>
+            </Button>
+          </div>
+          <img
+            src="/images/academic.svg"
+            alt="Materiais de estudo e apresentação acadêmica."
+            className="hidden h-full w-full object-cover lg:block"
+          />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-14 pt-8 sm:px-6">
+        <div className="flex flex-col items-start justify-between gap-4 rounded-[1.9rem] bg-navy-deep p-6 text-white sm:flex-row sm:items-center sm:p-8">
+          <div>
+            <p className="font-display text-2xl font-semibold text-gold">{SITE.slogan}</p>
+            <p className="mt-1 text-white/70">
+              {SITE.phoneDisplay} · atendimento e inscrições · {SITE.teacher}
+            </p>
+          </div>
+          <Button asChild variant="gold">
+            <Link to="/contato">Falar conosco</Link>
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
 }
