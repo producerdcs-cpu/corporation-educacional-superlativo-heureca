@@ -31,7 +31,7 @@ export const RECICLAGEM = {
   title: "Cursos de Reciclagem",
   subjects: ["Português", "Matemática"] as const,
   focus: "Séries iniciais e Ensino Médio",
-  period: "De 20 de julho a 1º de agosto",
+  period: "Aberto desde hoje",
   hoursLabel: "Horário vespertino",
   levels: [
     { id: "infantil", title: "Ensino Infantil" },
