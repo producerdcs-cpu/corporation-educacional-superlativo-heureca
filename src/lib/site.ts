@@ -1,14 +1,14 @@
 export const SITE = {
   name: "Superlativo Heureca",
   legal: "Corporation Educacional Superlativo Heureca",
-  teacher: "Profª. Luh",
+  teacher: "Profª. Lú",
   slogan: "Onde o conhecimento ganha vida!",
   promise: "Aprender hoje para transformar o amanhã!",
   tagline: "Suporte • Foco • Resultados",
   invite: "Conte conosco!",
   phoneDisplay: "(67) 9.8475-9208",
   phoneTel: "+5567984759208",
-  whatsapp: "https://wa.me/5567984759208?text=" + encodeURIComponent("Olá, Profª. Luh! Gostaria de informações sobre a Corporation Educacional Superlativo Heureca e suas soluções de aprendizagem."),
+  whatsapp: "https://wa.me/5567984759208?text=" + encodeURIComponent("Olá, Profª. Lú! Gostaria de informações sobre a Corporation Educacional Superlativo Heureca e suas soluções de aprendizagem."),
   facebook: "https://www.facebook.com/groups/521597561240445/contato",
   hours: [
     { start: "14:00", end: "15:30" },
