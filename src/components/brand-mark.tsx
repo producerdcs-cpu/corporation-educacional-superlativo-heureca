@@ -12,7 +12,7 @@ export function BrandMark({ className, light = false }: { className?: string; li
         aria-hidden="true"
       >
         <img
-          src="/images/logo-institution.png"
+          src="/images/logo-institution.jpg"
           alt=""
           className="size-9 object-contain p-0.5"
           width={36}
